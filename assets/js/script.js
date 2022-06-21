@@ -20,11 +20,12 @@ class Pessoa {
         const telefone = document.querySelector("#telefone").value
         const cargo = document.querySelector("#cargo").value
 
-        if (Pessoa.cadastros.some(pessoa.email))
-        const novoCadastro = new Pessoa(nome, sobrenome, dataNascimento, email, contato, telefone, cargo)
-        
-        Pessoa.cadastros.push(novoCadastro)
-        this.atualizaTotalDeCadastros()
+        if (!Pessoa.cadastros.some(pessoa => pessoa.email == email && email != "")) {
+            const novoCadastro = new Pessoa(nome, sobrenome, dataNascimento, email, contato, telefone, cargo)
+            
+            Pessoa.cadastros.push(novoCadastro)
+            this.atualizaTotalDeCadastros()
+        }
     }
 
     static filtro(){
